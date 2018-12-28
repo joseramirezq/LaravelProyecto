@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'Pagescontroller@inicio');
 /*Estoy creando una ruta fotos para en ella escribir estas en la galeria de fotos
 y le paso un parametro, pongo el signo de interrogacion para cuando no tenga un numero, osea un parametro ya fijo
 claro que si lo cambias ese cambia 
@@ -37,16 +35,8 @@ Route::get('numeroletra/{numero?}',function ($numero='si numero') {
 /*ademas podemos hacer un atajo, donde primero es la galeria y luego ya mostramos el fotos php*/
 Route::view('galeria','fotos', ['numero'=>125]);
 
-Route::get('fotos',function(){
-    return view('fotos');
-})->name('foto');
+Route::get('fotos',"Pagescontroller@fotos")->name('foto');
 
-Route::get('blog',function(){
-    return view('blog');
-})->name('noticia');
+Route::get('blog',"Pagescontroller@blog")->name('noticia');
 
-Route::get('nosotros/{nombre?}',function($nombre=null){
-$equipo=['jose','lucho','andres'];
- //return view('nosotros',['equipo'=>$equipo]);
- return view('nosotros',compact('equipo','nombre'));
-})->name('nosotros');
+Route::get('nosotros/{nombre?}',"Pagescontroller@nosotros")->name('nosotros');

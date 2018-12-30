@@ -43,18 +43,7 @@ Route::get('nosotros/{nombre?}',"Pagescontroller@nosotros")->name('nosotros');*/
 
 
 
-Route:: get('/usuarios',function(){
-    return "Bievenido a mi primera ruta";
-});
-Route ::get('/usuarios/{id}', function($id){
-    return "Mostrando detalle del usuario : {$id}" ;
-})->where('id','\d+');/*\d+ nos permite caracteres de numeros y \w alfanumericos*/
-
-Route::get('/usuarios/nuevo',function(){
-    return "Crear usuario nuevo";
-});
-
-Route::get('/saludo/{name?}/{nickname?}',function($name=null, $nickname=null){
-    return "Bienvenido {$name} tu apodo es {$nickname}";
-
-});
+Route:: get('/usuarios','UserController@index');
+Route ::get('/usuarios/{id}','UserController@number')->where('id','\d+');/*\d+ nos permite caracteres de numeros y \w alfanumericos*/
+Route::get('/usuarios/{nuevo}','UserController@show')->where('$nuevo','\w');
+Route::get('/saludo/{name?}/{nickname?}','UserController@saludo');

@@ -25,18 +25,36 @@ ahora si solo queremeo snumero seria asi, valiadando lo que coloca el usuario en
 */ 
 
 
-Route::get('solonumero/{numero?}',function ($numero='si numero') {
+/*Route::get('solonumero/{numero?}',function ($numero='si numero') {
     return 'Estas en la galeria de fotos: '.$numero;
 })-> where('numero','[0-9]');
 
 Route::get('numeroletra/{numero?}',function ($numero='si numero') {
     return 'Estas en la galeria de fotos: '.$numero;
 });
-/*ademas podemos hacer un atajo, donde primero es la galeria y luego ya mostramos el fotos php*/
+ademas podemos hacer un atajo, donde primero es la galeria y luego ya mostramos el fotos php
 Route::view('galeria','fotos', ['numero'=>125]);
 
 Route::get('fotos',"Pagescontroller@fotos")->name('foto');
 
 Route::get('blog',"Pagescontroller@blog")->name('noticia');
 
-Route::get('nosotros/{nombre?}',"Pagescontroller@nosotros")->name('nosotros');
+Route::get('nosotros/{nombre?}',"Pagescontroller@nosotros")->name('nosotros');*/
+
+
+
+Route:: get('/usuarios',function(){
+    return "Bievenido a mi primera ruta";
+});
+Route ::get('/usuarios/{id}', function($id){
+    return "Mostrando detalle del usuario : {$id}" ;
+})->where('id','\d+');/*\d+ nos permite caracteres de numeros y \w alfanumericos*/
+
+Route::get('/usuarios/nuevo',function(){
+    return "Crear usuario nuevo";
+});
+
+Route::get('/saludo/{name?}/{nickname?}',function($name=null, $nickname=null){
+    return "Bienvenido {$name} tu apodo es {$nickname}";
+
+});

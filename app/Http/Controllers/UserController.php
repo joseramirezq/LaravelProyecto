@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function index(){
-        return "Bienvenido a mi primera ruta";
+        $users=['Amy','Iris','Ramirez'];
+        $title='Listado de usuarios';
+        
+      return view('user', compact('users','title'));
     }
 
     public function show($nuevo=null){

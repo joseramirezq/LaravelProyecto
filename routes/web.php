@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'Pagescontroller@inicio');
+Route::get('/', 'WelcomeController@index');
 /*Estoy creando una ruta fotos para en ella escribir estas en la galeria de fotos
 y le paso un parametro, pongo el signo de interrogacion para cuando no tenga un numero, osea un parametro ya fijo
 claro que si lo cambias ese cambia 

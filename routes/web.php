@@ -47,3 +47,4 @@ Route:: get('/usuarios','UserController@index');
 Route ::get('/usuarios/{id}','UserController@number')->where('id','\d+');/*\d+ nos permite caracteres de numeros y \w alfanumericos*/
 Route::get('/usuarios/{nuevo}','UserController@show')->where('$nuevo','\w');
 Route::get('/saludo/{name?}/{nickname?}','UserController@saludo');
+Route::get('/estudiante','EstudianteController@estudiante');

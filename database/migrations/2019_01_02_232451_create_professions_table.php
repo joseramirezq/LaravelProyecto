@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBotasTable extends Migration
+class CreateProfessionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateBotasTable extends Migration
      */
     public function up()
     {
-        Schema::create('botas', function (Blueprint $table) {
+        Schema::create('professions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
-            $table->string('descripcion');
+            $table->string('title',100);
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateBotasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('botas');
+        Schema::dropIfExists('professions');
     }
 }
